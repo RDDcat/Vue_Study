@@ -1,7 +1,9 @@
 <template>
     <div class="inputBox shadow">
         <input type="text" v-model="newTodoItem">
-        <button v-on:click="addTodo">add</button>
+        <span class="addContainer" v-on:click="addTodo">
+            <i class="fa-solid fa-plus"></i>
+        </span>
     </div>
 </template>
 
@@ -40,6 +42,7 @@ input:focus{
 .inputBox input{
     border-style: none;
     font-size: 0.9rem;
+    width: 90%;
 }
 .addContainer{
     float: right;
