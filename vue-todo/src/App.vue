@@ -1,6 +1,6 @@
 <template>
   <TodoHeader />
-  <TodoInput />
+  <TodoInput v-on:addTodoItem="addOneItem" />
   <TodoList v-bind:propsdata="todoItems"/>
   <TodoFooter />
 </template>
@@ -22,6 +22,13 @@ export default {
   data(){
     return {
         todoItems: [],
+    }
+  },
+  methods:{
+    addOneItem: function(todoItem){
+      var obj = {completed:false, item:todoItem }
+      localStorage.setItem(todoItem, JSON.stringify(obj));
+
     }
   },
   created(){
