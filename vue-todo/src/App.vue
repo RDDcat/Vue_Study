@@ -3,6 +3,7 @@
   <TodoInput v-on:addTodoItem="addOneItem" />
   <TodoList v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem" v-on:toggleItem="toggleOneItem"/>
   <TodoFooter v-on:clearAll="clearAllItems"/>
+  {{this.$store.state.count}}
 </template>
 
 <script>
