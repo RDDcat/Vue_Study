@@ -24,7 +24,8 @@ export default {
         // 저장하는 역할
         addTodo: function(){
             if(this.newTodoItem!==''){
-                this.$emit('addTodoItem', this.newTodoItem);
+                // this.$emit('addTodoItem', this.newTodoItem);
+                this.$store.commit('addOneItem', this.newTodoItem);
                 this.clearInput();
             } else {
                 this.showModal=true;
