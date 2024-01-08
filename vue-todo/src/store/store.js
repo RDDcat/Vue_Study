@@ -22,7 +22,6 @@ export const store = new Vuex.Store({
     },
     mutations: {
         addOneItem(state, payload) {
-            console.log('receive');
             const obj = {completed:false, item:payload }
             state.todoItems.push(obj);
             localStorage.setItem(payload, JSON.stringify(obj));
@@ -32,7 +31,8 @@ export const store = new Vuex.Store({
             state.todoItems.splice(payload.index, 1);
         },
         toggleOneItem(state, payload){
-            state.todoItems[payload.index].completed = !this.todoItems[payload.index].completed;
+            console.log('receive');
+            state.todoItems[payload.index].completed = !state.todoItems[payload.index].completed;
             localStorage.removeItem(state.todoItems[payload.index].item);
             localStorage.setItem(state.todoItems[payload.index].item, JSON.stringify(state.todoItems[payload.index]))
         },

@@ -86,7 +86,6 @@ export default {
 }
 .modal-default-button:active{
     background-color: #747474;
-
 }
 
 
