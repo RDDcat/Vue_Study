@@ -21,12 +21,12 @@ export default {
   },
   data(){
     return {
-        todoItems: [],
+      todoItems: [],
     }
   },
   methods:{
     addOneItem: function(todoItem){
-      var obj = {completed:false, item:todoItem }
+      const obj = {completed:false, item:todoItem }
       this.todoItems.push(obj);
       localStorage.setItem(todoItem, JSON.stringify(obj));
 
@@ -52,7 +52,7 @@ export default {
         console.log("created");
         // 로컬에 데이터가 있다면
         if(localStorage.length >0){
-            for(var i=0; i< localStorage.length; i++){
+            for(let i=0; i< localStorage.length; i++){
                 if(localStorage.key(i)!== 'loglevel:webpack-dev-server'){
                     this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
                 }
