@@ -5,13 +5,19 @@
             <i class="fa-solid fa-plus"></i>
         </span>
     </div>
+    <TodoModal v-if="showModal" @close="showModal=false">
+        <template #header>경고</template>
+        <template #body>입력값이 없어요</template>
+    </TodoModal>
 </template>
-
 <script>
+import TodoModal from '@/components/common/TodoModal'
+
 export default {
     data(){
         return {
             newTodoItem: "",
+            showModal: true,
         }
     },
     methods:{
@@ -20,6 +26,8 @@ export default {
             if(this.newTodoItem!==''){
                 this.$emit('addTodoItem', this.newTodoItem);
                 this.clearInput();
+            } else {
+                this.showModal=true;
             }
             
         },
@@ -28,7 +36,11 @@ export default {
             this.newTodoItem = "";
         }
 
+    },
+    components:{
+        TodoModal,
     }
+    
 
 }
 </script>
